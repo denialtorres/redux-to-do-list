@@ -18,12 +18,16 @@ export const todoSlice = createSlice({
       };
       state.push(todo);
     },
+    toggleComplete: (state, action) => {
+      const index = state.findIndex((todo) => todo.id === action.payload.id);
+      state[index].completed = action.payload.completed;
+    },
   },
 });
 
 // So the todoSlice has created a bunch of actions
 // for us based on our reducer names, and we just use destructuring to get the addTodo action and export it
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, toggleComplete } = todoSlice.actions;
 
 // And we export the reducer so we can add it to our store (line 28).
 export default todoSlice.reducer;
