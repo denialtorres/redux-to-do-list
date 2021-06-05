@@ -4,7 +4,7 @@ import { addTodo } from "../redux/todoSlice";
 
 const AddTodoForm = () => {
   const [value, setValue] = useState("");
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
   const onSubmit = (event) => {
     event.preventDefault();
